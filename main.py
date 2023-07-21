@@ -34,7 +34,7 @@ async def echo(websocket, path):
         print(f"An error occurred: {e}")
 
 # Start the WebSocket server
-start_server = websockets.serve(echo, "0.0.0.0", 8765)
+start_server = websockets.serve(echo, "", port=int(os.environ["PORT"]))
 
 # Enter the event loop to run the server indefinitely
 asyncio.get_event_loop().run_until_complete(start_server)
